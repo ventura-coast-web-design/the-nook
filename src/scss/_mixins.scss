@@ -1,19 +1,15 @@
-@use "variables";
-// Mixins
-@mixin container {
-  max-width: variables.$container-max-width;
-  margin: 0 auto;
-  padding: 0 variables.$container-padding;
-}
+@use "variables" as *;
 
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+// Responsive breakpoint mixin
 @mixin responsive($breakpoint) {
   @media (min-width: $breakpoint) {
     @content;
   }
+}
+
+// Flex center utility
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 } 

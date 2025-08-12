@@ -1,5 +1,6 @@
-@use "variables";
+@use "variables" as *;
 @use "sass:color";
+
 // Typography
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
@@ -19,11 +20,11 @@ p {
 }
 
 a {
-  color: variables.$primary-color;
+  color: $moss;
   text-decoration: none;
   transition: color 0.2s ease;
 
   &:hover {
-    color: color.adjust(variables.$primary-color, $lightness: -10%);
+    color: color.adjust($moss, $lightness: -10%);
   }
 } 

@@ -1,22 +1,23 @@
-// Variables
-$primary-color: #2563eb;
-$secondary-color: #64748b;
-$accent-color: #f59e0b;
-$text-color: #1e293b;
-$light-text: #64748b;
-$background-color: #ffffff;
-$light-background: #f8fafc;
-$border-color: #e2e8f0;
+// The Nook Brand Variables
+$black: #0e0e0e;
+$warm-beige: #efeadf;
+$moss: #6a754f;
+$soft-white: #fbf9f4;
+$muted: #bfb5aa;
+$gap: 1.125rem;
 
-$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+// Typography
+$font-family-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+$font-family-display: "Playfair Display", serif;
 $font-size-base: 16px;
-$line-height-base: 1.6;
+$line-height-base: 1.45;
 
+// Layout
 $container-max-width: 1200px;
 $container-padding: 1rem;
 
 // Breakpoints
-$breakpoint-sm: 640px;
+$breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px; 
