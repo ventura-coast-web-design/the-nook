@@ -1,9 +1,191 @@
 ---
 layout: base.njk
-title: "Eleventy SCSS Template"
-description: "A simple, modern static website template built with Eleventy and SCSS"
+title: "The Nook — Coffee. Community. Creativity."
+description: "A quiet, sunlit café for focused work, friendly conversation, and thoughtfully sourced coffee. Seasonal pastries, rotating single-origin pours, workshops, and a warm welcome."
 ---
 
-<div class="index">
-  INDEX
-</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="brand-display">The Nook</h1>
+        <p class="tagline">Coffee. Community. Creativity.</p>
+        <p class="hero-description">
+          A quiet, sunlit café for focused work, friendly conversation, and thoughtfully sourced coffee. Seasonal pastries, rotating single-origin pours, workshops, and a warm welcome.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn hero-cta" href="#menu">View Menu</a>
+          <a class="btn btn-secondary" href="#events">Events</a>
+          <a class="btn btn-link" href="#visit">Find Us</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="photo-card">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=a2d21a6d3c9a9f8d0b0b6f7f8d8a2a7b" alt="Latte art on clean table">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main-content">
+  <div class="container">
+
+    <!-- Featured coffee creations -->
+    <section id="menu" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Featured Coffee</h2>
+        <a class="section-link" href="#menu">Full menu →</a>
+      </div>
+
+      <div class="coffee-grid">
+        <article class="coffee-card">
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7b1987e17f7e5d5bff4a0f9f8d4f9e1c" alt="Pour-over coffee">
+          <div class="coffee-info">
+            <h3>Single-origin Pour-Over</h3>
+            <p>Delicate florals • 90ml</p>
+          </div>
+        </article>
+
+        <article class="coffee-card">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=c0a3e7b13fc1b2f0a6f39b3b9a2b2a40" alt="House latte">
+          <div class="coffee-info">
+            <h3>House Special Latte</h3>
+            <p>Oat milk • brown butter syrup</p>
+          </div>
+        </article>
+
+        <article class="coffee-card">
+          <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=c3f0a3c9d1c2a2b8f9b0b8a3e5f0a9c1" alt="Cold brew">
+          <div class="coffee-info">
+            <h3>Seasonal Cold Brew</h3>
+            <p>Bright • Citrus finish</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Our story & Events -->
+    <div class="story-events">
+      <div class="story-section">
+        <h2 class="section-title">Our Story</h2>
+        <p class="story-text">
+          The Nook began as a place to slow down. We roast thoughtfully, partner with local bakers, and host monthly workshops to make space for creativity. Plenty of natural light, plants, and tables designed for work or conversation — your neighborhood's quiet corner.
+        </p>
+
+        <div class="story-buttons">
+          <a class="btn btn-secondary" href="#community">See Community →</a>
+          <a class="btn hero-cta" href="#events">Upcoming Events</a>
+        </div>
+      </div>
+
+      <div class="events-section">
+        <h2 class="section-title">Events & Workshops</h2>
+
+        <div class="events-grid">
+          <div class="event-card">
+            <strong>Latte Art 101</strong>
+            <div class="event-time">Sat, Aug 16 · 10:00 AM</div>
+            <p>Hands-on class; small groups. Tickets available online.</p>
+          </div>
+
+          <div class="event-card">
+            <strong>Open Mic Night</strong>
+            <div class="event-time">Thu, Aug 21 · 7:30 PM</div>
+            <p>Local musicians & poets. Sign-ups open at 6:45 PM.</p>
+          </div>
+
+          <div class="events-link">
+            <a href="#events">View full calendar →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Community / IG feed mock -->
+    <section id="community" class="section">
+      <h2 class="section-title">Community</h2>
+      <p class="section-description">We partner with local artists, host monthly markets, and spotlight the people who make our neighborhood special.</p>
+
+      <div class="community-grid">
+        <div class="community-image">
+          <img src="https://images.unsplash.com/photo-1505691723518-36a3fbd6e9f3?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=45e9f2b2e6f17f1f3b9e8c9b2d2b7a2e" alt="community artwork">
+        </div>
+        <div class="community-image">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=0e4d5a2a85fa8d8b3c2b5f9d1a6b4c8f" alt="latte">
+        </div>
+        <div class="community-image">
+          <img src="https://images.unsplash.com/photo-1574680096145-0b2d2b4d5cbb?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=8f4c5f1a2a7b8c3d9e1a2b6c7d8f9e0a" alt="workshop">
+        </div>
+        <div class="community-image">
+          <img src="https://images.unsplash.com/photo-1548946526-f69e2424cf45?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2f3b1c4a5d6e7f8a9b0c1d2e3f4a5b6c" alt="shop">
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit / Hours / Map -->
+    <section id="visit" class="section">
+      <div class="visit-content">
+        <div class="visit-info">
+          <h2 class="section-title">Visit Us</h2>
+          <p class="address">123 Parallel Lane, Neighborhood City</p>
+
+          <table class="hours-table">
+            <tbody>
+              <tr>
+                <td><strong>Mon–Fri</strong></td>
+                <td>7:00 AM — 6:00 PM</td>
+              </tr>
+              <tr>
+                <td><strong>Sat</strong></td>
+                <td>8:00 AM — 6:00 PM</td>
+              </tr>
+              <tr>
+                <td><strong>Sun</strong></td>
+                <td>8:00 AM — 4:00 PM</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="visit-buttons">
+            <a class="btn btn-secondary" href="#visit">Get directions</a>
+            <a class="btn hero-cta" href="#order">Order pickup</a>
+          </div>
+        </div>
+
+        <div class="visit-map">
+          <div class="photo-card">
+            <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=7f9d2b3c4d5e6f7a8b9c0d1e2f3a4b5c" alt="map placeholder">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="newsletter-content">
+        <div class="newsletter-text">
+          <h3>The Nook Perks</h3>
+          <p>Join our newsletter for event invites, seasonal drinks, and early access to tickets.</p>
+        </div>
+        <div class="newsletter-form">
+          <form onsubmit="event.preventDefault(); alert('Thanks! — Replace with real subscription handler.');">
+            <label for="email" class="visually-hidden">Email</label>
+            <input id="email" type="email" placeholder="you@domain.com" required>
+            <button class="btn hero-cta" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  // small enhancements
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
