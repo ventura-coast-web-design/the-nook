@@ -1,0 +1,204 @@
+@use "variables" as *;
+
+// Menu Hero Section
+.menu-hero {
+  background: linear-gradient(180deg, rgba(250, 248, 244, 0.95), rgba(250, 248, 244, 0.95));
+  
+  .hero-text {
+    .brand-display {
+      color: $black;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tagline {
+      color: $moss;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Menu Sections
+.menu-section {
+  margin-bottom: 4rem;
+  
+  @media (min-width: $breakpoint-md) {
+    margin-bottom: 5rem;
+  }
+  
+  .section-title {
+    font-family: $font-family-display;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: $black;
+  }
+  
+  .section-description {
+    color: $muted;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+}
+
+// Menu Grid
+.menu-grid {
+  display: grid;
+  gap: 1.5rem;
+  
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Menu Items
+.menu-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(18, 18, 18, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(18, 18, 18, 0.1);
+  }
+  
+  &.featured {
+    border: 2px solid $moss;
+    background: linear-gradient(135deg, rgba(106, 117, 79, 0.02), rgba(239, 234, 223, 0.02));
+    
+    .menu-item-header h3 {
+      color: $moss;
+    }
+  }
+  
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+    
+    h3 {
+      font-family: $font-family-display;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $black;
+      margin: 0;
+      flex: 1;
+      margin-right: 1rem;
+    }
+    
+    .price {
+      font-weight: 700;
+      color: $moss;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+  }
+  
+  .menu-description {
+    color: #4b4b4b;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .menu-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    
+    .tag {
+      background: rgba(106, 117, 79, 0.08);
+      color: $moss;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+  }
+}
+
+// Menu Note Section
+.menu-note {
+  background: linear-gradient(135deg, rgba(106, 117, 79, 0.04), rgba(239, 234, 223, 0.04));
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  border: 1px solid rgba(106, 117, 79, 0.1);
+  
+  .note-content {
+    text-align: center;
+    max-width: 60ch;
+    margin: 0 auto;
+    
+    h3 {
+      font-family: $font-family-display;
+      font-size: 1.25rem;
+      color: $black;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      color: #4b4b4b;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    
+    .note-tags {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      
+      .tag {
+        background: $moss;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 1.5rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-sm) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .menu-item {
+    padding: 1.25rem;
+    
+    &-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      
+      .price {
+        align-self: flex-end;
+      }
+    }
+  }
+  
+  .menu-note {
+    padding: 1.5rem;
+    
+    .note-content .note-tags {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
