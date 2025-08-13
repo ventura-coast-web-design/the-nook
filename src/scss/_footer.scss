@@ -4,7 +4,7 @@
 .footer {
   background: transparent;
   padding: 2rem 0;
-  color: $muted;
+  color: $dark-moss;
   font-size: 0.95rem;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   margin-top: 3rem;
@@ -35,7 +35,7 @@
     }
 
     .footer-tagline {
-      color: $muted;
+      color: $dark-moss;
       font-size: 0.9rem;
       letter-spacing: 0.06em;
     }
@@ -50,7 +50,7 @@
 
     .contact-info {
       line-height: 1.5;
-      color: $muted;
+      color: $dark-moss;
     }
   }
 
@@ -68,7 +68,7 @@
     }
 
     a {
-      color: $muted;
+      color: $dark-moss;
       text-decoration: none;
       margin: 0 0.5rem;
       transition: color 0.2s ease;
@@ -83,7 +83,7 @@
     text-align: center;
     padding-top: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    color: $muted;
+    color: $dark-moss;
     font-size: 0.9rem;
   }
 }
