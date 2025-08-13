@@ -170,7 +170,7 @@ body {
   }
 
   &-description {
-    color: $muted;
+    color: $dark-moss;
     max-width: 68ch;
     margin-bottom: 1.5rem;
   }
@@ -215,7 +215,7 @@ body {
 
     p {
       font-size: 0.9rem;
-      color: $muted;
+      color: $dark-moss;
       margin: 0;
     }
   }
@@ -268,7 +268,7 @@ body {
 
     .event-time {
       font-size: 0.9rem;
-      color: $muted;
+      color: $dark-moss;
       margin-bottom: 0.5rem;
     }
 
@@ -305,10 +305,18 @@ body {
 
   .community-image {
     .photo-card {
-      height: 120px;
-
-      @media (min-width: $breakpoint-md) {
-        height: 160px;
+      width: 10rem;
+      height: 10rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(18, 18, 18, 0.06);
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
       }
     }
   }
