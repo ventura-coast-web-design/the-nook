@@ -136,36 +136,24 @@ description: "Join us for workshops, open mic nights, and community events. Book
             </div>
           </div>
 
-          <!-- Calendar Section - Moved here and made smaller -->
+          <!-- Calendar Section -->
           <div class="calendar-section">
             <h3 class="calendar-title">Event Calendar</h3>
-            <p class="calendar-description">Browse available dates. Green dates are available for booking.</p>
+            <p class="calendar-description">Browse available dates and see what's already scheduled. Green dates are available for booking.</p>
             
-            <div class="calendar-container small">
-              <div class="calendar-header">
-                <button class="calendar-nav" id="prevMonth">&lt;</button>
-                <h4 id="currentMonth">August 2024</h4>
-                <button class="calendar-nav" id="nextMonth">&gt;</button>
-              </div>
-              
-              <div class="calendar-grid" id="calendarGrid">
-                <!-- Calendar will be populated by JavaScript -->
-              </div>
-              
-              <div class="calendar-legend">
-                <div class="legend-item">
-                  <span class="legend-color available"></span>
-                  <span>Available</span>
-                </div>
-                <div class="legend-item">
-                  <span class="legend-color booked"></span>
-                  <span>Booked</span>
-                </div>
-                <div class="legend-item">
-                  <span class="legend-color today"></span>
-                  <span>Today</span>
-                </div>
-              </div>
+            <div class="google-calendar-embed">
+              <iframe 
+                src="https://calendar.google.com/calendar/embed?src=andrew.ackers%40gmail.com&ctz=America%2FLos_Angeles&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+                style="border: 0" 
+                width="100%" 
+                height="400" 
+                frameborder="0" 
+                scrolling="no">
+              </iframe>
+            </div>
+            
+            <div class="calendar-note">
+              <p>📅 <strong>Want to host an event?</strong> Check the calendar above for available dates, then fill out the form to request your preferred time.</p>
             </div>
           </div>
         </div>
@@ -221,94 +209,9 @@ description: "Join us for workshops, open mic nights, and community events. Book
 </main>
 
 <script>
-  // Calendar functionality
-  let currentDate = new Date();
-  let currentMonth = currentDate.getMonth();
-  let currentYear = currentDate.getFullYear();
-
-  function renderCalendar() {
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"];
-    
-    document.getElementById('currentMonth').textContent = `${monthNames[currentMonth]} ${currentYear}`;
-    
-    const firstDay = new Date(currentYear, currentMonth, 1);
-    const lastDay = new Date(currentYear, currentMonth + 1, 0);
-    const startDate = new Date(firstDay);
-    startDate.setDate(startDate.getDate() - firstDay.getDay());
-    
-    const calendarGrid = document.getElementById('calendarGrid');
-    calendarGrid.innerHTML = '';
-    
-    // Add day headers
-    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    daysOfWeek.forEach(day => {
-      const dayHeader = document.createElement('div');
-      dayHeader.className = 'calendar-day-header';
-      dayHeader.textContent = day;
-      calendarGrid.appendChild(dayHeader);
-    });
-    
-    // Add calendar days
-    for (let i = 0; i < 42; i++) {
-      const date = new Date(startDate);
-      date.setDate(startDate.getDate() + i);
-      
-      const dayElement = document.createElement('div');
-      dayElement.className = 'calendar-day';
-      
-      if (date.getMonth() === currentMonth) {
-        dayElement.textContent = date.getDate();
-        
-        // Check if it's today
-        if (date.toDateString() === new Date().toDateString()) {
-          dayElement.classList.add('today');
-        }
-        
-        // Check if it's booked (example: weekends are "booked")
-        if (date.getDay() === 0 || date.getDay() === 6) {
-          dayElement.classList.add('booked');
-        } else {
-          dayElement.classList.add('available');
-        }
-        
-        // Add click handler for available dates
-        if (dayElement.classList.contains('available')) {
-          dayElement.addEventListener('click', () => {
-            alert(`You clicked on ${date.toLocaleDateString()}. This date is available for booking!`);
-          });
-        }
-      }
-      
-      calendarGrid.appendChild(dayElement);
-    }
-  }
-
-  // Navigation buttons
-  document.getElementById('prevMonth').addEventListener('click', () => {
-    currentMonth--;
-    if (currentMonth < 0) {
-      currentMonth = 11;
-      currentYear--;
-    }
-    renderCalendar();
-  });
-
-  document.getElementById('nextMonth').addEventListener('click', () => {
-    currentMonth++;
-    if (currentMonth > 11) {
-      currentMonth = 0;
-      currentYear++;
-    }
-    renderCalendar();
-  });
-
   // Form submission
   document.querySelector('.event-request-form').addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Thank you for your event request! We\'ll get back to you within 48 hours.');
   });
-
-  // Initialize calendar
-  renderCalendar();
 </script>

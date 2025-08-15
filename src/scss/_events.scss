@@ -319,129 +319,104 @@
   }
 }
 
-.calendar-container {
+// Google Calendar Embed
+.google-calendar-embed {
   background: white;
-  padding: 1.5rem;
   border-radius: 0.75rem;
   box-shadow: 0 4px 16px rgba(18, 18, 18, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
   
-  &.small {
-    padding: 1rem;
-    max-width: 400px;
-  }
-}
-
-.calendar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  
-  h4 {
-    font-family: $font-family-display;
-    font-size: 1rem;
-    color: $black;
-    margin: 0;
+  // Add a subtle brand accent at the top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $moss, $warm-beige);
+    z-index: 1;
   }
   
-  .calendar-nav {
-    background: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    padding: 0.25rem 0.75rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: $black;
+  // Add a subtle inner shadow for depth
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  iframe {
+    display: block;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(106, 117, 79, 0.1);
     transition: all 0.2s ease;
     
     &:hover {
-      border-color: $moss;
-      color: $moss;
-    }
-  }
-}
-
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 0.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.calendar-day-header {
-  text-align: center;
-  font-weight: 600;
-  color: $dark-moss;
-  padding: 0.5rem 0;
-  font-size: 0.8rem;
-}
-
-.calendar-day {
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.85rem;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
-  
-  &.available {
-    background: rgba(106, 117, 79, 0.1);
-    color: $moss;
-    
-    &:hover {
-      background: rgba(106, 117, 79, 0.2);
-      transform: scale(1.05);
+      border-color: rgba(106, 117, 79, 0.2);
     }
   }
   
-  &.booked {
-    background: rgba(0, 0, 0, 0.05);
+  // Loading state
+  &.loading::after {
+    content: '📅 Loading calendar...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: $muted;
-    cursor: not-allowed;
-  }
-  
-  &.today {
-    background: $moss;
-    color: white;
-    font-weight: 700;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    z-index: 2;
   }
 }
 
-.calendar-legend {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+// Calendar Note
+.calendar-note {
+  background: linear-gradient(135deg, rgba(106, 117, 79, 0.03), rgba(239, 234, 223, 0.03));
+  border: 1px solid rgba(106, 117, 79, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  position: relative;
   
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.8rem;
+  // Add a subtle icon
+  &::before {
+    content: '💡';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 0.9rem;
     color: $dark-moss;
+    line-height: 1.6;
     
-    .legend-color {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 0.2rem;
-      
-      &.available {
-        background: rgba(106, 117, 79, 0.1);
-      }
-      
-      &.booked {
-        background: rgba(0, 0, 0, 0.05);
-      }
-      
-      &.today {
-        background: $moss;
-      }
+    strong {
+      color: $black;
+      font-weight: 600;
     }
+  }
+  
+  // Hover effect
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: rgba(106, 117, 79, 0.25);
+    background: linear-gradient(135deg, rgba(106, 117, 79, 0.05), rgba(239, 234, 223, 0.05));
   }
 }
 
