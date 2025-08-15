@@ -51,20 +51,12 @@
     {% include "../_includes/footer.njk" %}
 
               <script>
-              // Font loading optimization
-              if ('fonts' in document) {
-                Promise.all([
-                  document.fonts.load('300 16px Inter'),
-                  document.fonts.load('400 16px Inter'),
-                  document.fonts.load('600 16px Inter'),
-                  document.fonts.load('700 16px Inter'),
-                  document.fonts.load('400 16px "Playfair Display"'),
-                  document.fonts.load('700 16px "Playfair Display"')
-                ]).then(() => {
-                  document.documentElement.classList.add('fonts-loaded');
-                  document.body.classList.add('font-loaded');
-                });
-              }
+              // Simple font loading detection
+              // Google Fonts CSS handles the actual font loading
+              setTimeout(() => {
+                document.documentElement.classList.add('fonts-loaded');
+                document.body.classList.add('font-loaded');
+              }, 100);
               
               // Mobile navigation toggle
               const navbarToggler = document.getElementById('navbarToggler');
