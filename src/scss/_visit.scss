@@ -1,0 +1,253 @@
+@use "variables" as *;
+
+// Visit Hero Section
+.visit-hero {
+  background: linear-gradient(180deg, rgba(250, 248, 244, 0.95), rgba(250, 248, 244, 0.95));
+  
+  .hero-text {
+    text-align: center;
+    
+    .brand-display {
+      color: $black;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tagline {
+      color: $moss;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+      color: #4b4b4b;
+      max-width: 60ch;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+}
+
+// Visit Details Section
+.visit-details {
+  margin-bottom: 4rem;
+  
+  .details-grid {
+    display: grid;
+    gap: 2rem;
+    
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .detail-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 16px rgba(18, 18, 18, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    
+    h3 {
+      font-family: $font-family-display;
+      font-size: 1.25rem;
+      color: $black;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  }
+  
+  .hours-list {
+    .day-hours {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .day {
+        font-weight: 500;
+        color: $black;
+      }
+      
+      .time {
+        color: $moss;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .contact-info {
+    p {
+      margin-bottom: 1rem;
+      color: #4b4b4b;
+      line-height: 1.5;
+      
+      strong {
+        color: $black;
+      }
+    }
+  }
+  
+  .amenities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    
+    .amenity {
+      background: rgba(106, 117, 79, 0.08);
+      color: $moss;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+}
+
+// Location Section
+.location-section {
+  margin-bottom: 4rem;
+  
+  .section-title {
+    font-family: $font-family-display;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: $black;
+    text-align: center;
+  }
+  
+  .section-description {
+    color: $muted;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .map-container {
+    margin-bottom: 2rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(18, 18, 18, 0.1);
+    
+    iframe {
+      display: block;
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+  }
+  
+  .location-details {
+    display: grid;
+    gap: 2rem;
+    
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .address-info,
+    .parking-info {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 8px rgba(18, 18, 18, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      
+      h3 {
+        font-family: $font-family-display;
+        font-size: 1.1rem;
+        color: $black;
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        color: #4b4b4b;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Visit Note Section
+.visit-note {
+  background: linear-gradient(135deg, rgba(106, 117, 79, 0.04), rgba(239, 234, 223, 0.04));
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  border: 1px solid rgba(106, 117, 79, 0.1);
+  
+  .note-content {
+    text-align: center;
+    max-width: 60ch;
+    margin: 0 auto;
+    
+    h3 {
+      font-family: $font-family-display;
+      font-size: 1.25rem;
+      color: $black;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      color: #4b4b4b;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    
+    .note-tags {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      
+      .tag {
+        background: $moss;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 1.5rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-sm) {
+  .visit-details .details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .detail-card {
+    padding: 1.5rem;
+  }
+  
+  .location-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .visit-note {
+    padding: 1.5rem;
+    
+    .note-content .note-tags {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  .map-container iframe {
+    height: 350px;
+  }
+}
