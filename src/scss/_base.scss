@@ -1,6 +1,78 @@
 @use "variables" as *;
 @use "sass:color";
 
+// Font loading optimizations
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  font-weight: 300 700;
+  font-style: normal;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+  font-weight: 400 700;
+  font-style: normal;
+  src: url('https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+// Font metric overrides to prevent layout shifts
+.font-metrics-override {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-display: swap;
+  font-size-adjust: 0.52; /* Adjust for Inter's x-height */
+  ascent-override: 90%;
+  descent-override: 20%;
+  line-gap-override: 0%;
+}
+
+.font-display-override {
+  font-family: 'Playfair Display', serif;
+  font-display: swap;
+  font-size-adjust: 0.48; /* Adjust for Playfair Display's x-height */
+  ascent-override: 95%;
+  descent-override: 15%;
+  line-gap-override: 0%;
+}
+
+// Base typography with fallbacks
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $black;
+  background-color: $soft-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: font-family 0.1s ease;
+  
+  &.font-loaded {
+    font-family: $font-family-base;
+  }
+}
+
+// Font loading states
+.fonts-loaded {
+  .brand-display,
+  .section-title,
+  h1, h2, h3 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  }
+  
+  .tagline,
+  .hero-description,
+  p,
+  .nav-link,
+  .btn {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
 // Typography
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;

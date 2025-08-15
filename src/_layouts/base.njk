@@ -8,8 +8,36 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+              <!-- Font loading optimization -->
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          
+          <!-- Critical font CSS to prevent layout shifts -->
+          <style>
+            /* Font fallbacks to prevent layout shifts */
+            .font-loading {
+              font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            }
+            
+            .font-loaded {
+              font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            }
+            
+            .font-display-loaded {
+              font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            }
+            
+            /* Font metric overrides */
+            .font-metrics {
+              font-size-adjust: 0.52;
+              ascent-override: 90%;
+              descent-override: 20%;
+              line-gap-override: 0%;
+            }
+          </style>
+          
+          <!-- Load fonts with display=swap -->
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -22,10 +50,25 @@
 
     {% include "../_includes/footer.njk" %}
 
-    <script>
-        // Mobile navigation toggle
-        const navbarToggler = document.getElementById('navbarToggler');
-        const navbarMenu = document.getElementById('mainNav');
+              <script>
+              // Font loading optimization
+              if ('fonts' in document) {
+                Promise.all([
+                  document.fonts.load('300 16px Inter'),
+                  document.fonts.load('400 16px Inter'),
+                  document.fonts.load('600 16px Inter'),
+                  document.fonts.load('700 16px Inter'),
+                  document.fonts.load('400 16px "Playfair Display"'),
+                  document.fonts.load('700 16px "Playfair Display"')
+                ]).then(() => {
+                  document.documentElement.classList.add('fonts-loaded');
+                  document.body.classList.add('font-loaded');
+                });
+              }
+              
+              // Mobile navigation toggle
+              const navbarToggler = document.getElementById('navbarToggler');
+              const navbarMenu = document.getElementById('mainNav');
         
         if (navbarToggler && navbarMenu) {
             navbarToggler.addEventListener('click', function() {
